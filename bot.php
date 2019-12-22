@@ -12,7 +12,7 @@ $json = json_decode(file_get_contents("data.json"),true);
 sleep(1);
 
 $sid = $json['PHPSESSID']; //PHPSESSID
-$sid = $json['UserID']; //User ID
+$uid = $json['UserID']; //User ID
 
 $current_balance = 0;
 $total = 0;        
@@ -72,6 +72,9 @@ function setdata(){
     setdata();
   }
   elseif($opt == 3){
+    echo $sid."\n";
+    echo $uid."\n";
+    sleep(30);
     if(!empty($sid) && !empty($uid)){
       phc();
       check(true);
