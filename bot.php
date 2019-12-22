@@ -74,7 +74,6 @@ function setdata(){
   elseif($opt == 3){
     echo $sid."\n";
     echo $uid."\n";
-    sleep(30);
     if(!empty($sid) && !empty($uid)){
       phc();
       check(true);
