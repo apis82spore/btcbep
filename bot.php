@@ -72,14 +72,12 @@ function setdata(){
     setdata();
   }
   elseif($opt == 3){
-    echo $sid."\n";
-    echo $uid."\n";
     if(!empty($sid) && !empty($uid)){
       phc();
       check(true);
     }
     else{
-      echo "Please Update PHPSESSID & User ID";
+      echo "Please Update PHPSESSID/User ID";
       sleep(2);
       setdata();
     }
@@ -203,14 +201,14 @@ function check($first = false){
       check($first);
     }
     elseif($httpcode["url"] == "https://$site/"){
-      echo "Please Update Session ID\n";
+      echo "Please Update Session ID.\n";
       $sid = readline("Enter: ");
       $json = json_decode(file_get_contents("data.json"),true);
       $json['PHPSESSID'] = $sid;
       $jsonfile = fopen("data.json", "w");
       fwrite($jsonfile,json_encode($json));
       fclose($jsonfile);
-      init();
+      check($first);
     }
     else{
       $dom = new domdocument;
